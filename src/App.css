@@ -1,0 +1,7 @@
+.box-container{
+    display: flex;
+}
+
+.side-bar{
+    min-height: 800px;
+}
