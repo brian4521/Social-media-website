@@ -5,3 +5,15 @@
 .side-bar{
     min-height: 800px;
 }
+.info-card{
+    margin: 20px 16px;
+}
+
+.tags-info{
+    margin-right: 10px;
+}
+
+.reaction{
+    margin-top: 15px;
+
+}
