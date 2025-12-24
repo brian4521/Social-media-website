@@ -11,6 +11,8 @@ const postlistreducer = (currentpostlist, action) => {
     currentpostlist = currentpostlist.filter(
       (post) => post.id != action.payload.PostID
     );
+  } else if (action.type == "Add_Post") {
+    currentpostlist = [action.payload, ...currentpostlist];
   }
   return currentpostlist;
 };
@@ -21,7 +23,22 @@ const PostListProvider = ({ children }) => {
     DefaultValue
   );
 
-  const addPost = () => {};
+  const addPost = (UserId, postTitle, postContent, postReaction, postTags) => {
+    console.log(
+      `${UserId} ${postTitle} ${postContent} ${postReaction} ${postTags}`
+    );
+    dispatchPostList({
+      type: "Add_Post",
+      payload: {
+        id: Math.floor(Math.random() * 100),
+        title: postTitle,
+        body: postContent,
+        reactions: postReaction,
+        userId: UserId,
+        tags: postTags,
+      },
+    });
+  };
 
   const deletePost = (PostID) => {
     console.log(`post id is ${PostID}`);
